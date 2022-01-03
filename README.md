@@ -43,3 +43,9 @@ Results for each classifier include accuracy, and precision and recall, focused 
 
 
 ## Summary
+There are marked differences in the performance of different techniques applied to this dataset. 
+The four single logistic regression classifier all had precision of 0.01, and recall of 0.6-0.72 for the high-risk class. Accuracy was lowest for the undersampling alone technique (58.2%) and ranged from 65.5 to 66.7 for the three which included oversampling. The combination technique, SMOTEENN did not differ from the random oversampling alone.
+Both ensemble learners performed much better than the single classifiers. The random forest classifier had a precision of 0.03, 3x greater than that of any of the single learners, resulting in an accuract of 78.9% even though recall was the same as the better performing single learners. Low risk loans were much less likely to be classified as high risk by the random forest classifier compared the the 4 previous methods. 
+The final method, a balanced adaptive boosting classifier performed the best on all three metrics. Accuracy in the test set is 93%. Recall for the high-risk class is 0.92. Both of these metrics are very high. Precision is much improved at 0.09, though this still means that 90% of the loans classified as high-risk by the classifier will be false positives. 
+
+My recommendation is to use the Easy Ensemble Classifier method. While further improvements in precision would be ideal, the nature of this classification problem means that the classifier can still be useful. Bad loans are very rare in this dataset but are of very high importance to the company. Identifying bad loans as such provides information the company can act on to save money. As long as the number of loans falsely identified as bad is not so high as to make it impractical for the company to make a decision based on the result of the classifier, it does not hurt the company substantially to have low precision for the rare class. 
